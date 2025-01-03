@@ -1,0 +1,117 @@
+.contactSection {
+  font-family: "Rubik", system-ui;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 70px 10%;
+  margin-top: 2%;
+  margin-bottom: 0px;
+  padding-bottom: 2%;
+
+  .title-box h1 {
+    text-align: center;
+    padding: 0 30px;
+    font-size: 60px;
+    font-weight: 600;
+  }
+  .contact-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .contact-left {
+    display: flex;
+    flex-direction: column;
+    // flex-basis: 40%;
+  }
+  .contact-right {
+    // flex-basis: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+  }
+  .contact-left h1 {
+    font-size: 50px;
+    font-weight: 700;
+    background: linear-gradient(270deg, #df8908 80%, #b415ff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0px;
+  }
+  .contact-left p {
+    max-width: 550px;
+    color: #d8d8d8;
+    font-size: 16px;
+    line-height: 25px;
+  }
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    color: #d8d8d8;
+    font-size: 22px;
+  }
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .contact-detail img {
+    width: 25px;
+  }
+  .mediaIcons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 16px;
+  }
+  #linkedIcon,
+  #githubIcon {
+    font-size: 35px;
+    cursor: pointer;
+  }
+  .contact-left p {
+    max-width: 550px;
+    color: #d8d8d8;
+    font-size: 16px;
+    line-height: 25px;
+  }
+  .contact-right input,
+  .contact-right textarea {
+    border: none;
+    width: 100%;
+    padding: 18px 0 18px 20px;
+    border-radius: 4px;
+    background: #32323c;
+    color: #a0a0a0;
+    font-family: Outfit;
+    font-size: 18px;
+  }
+  .contact-right label {
+    color: #d8d8d8;
+  }
+  .contact-submit {
+    border: none;
+    color: #fff;
+    border-radius: 50px;
+    background: linear-gradient(264deg, #df8908 -5.09%, #b415ff 106.28%);
+    font-size: 18px;
+    padding: 18px 40px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-family: "Rubik", system-ui;
+  }
+  .input {
+    font-family: "Rubik", system-ui;
+  }
+  .roleSpan {
+    background: #b415ff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+  }
+}
