@@ -90,7 +90,7 @@ export default function Resume() {
 
             <div className="services-format">
               <h3>Trainee Developer</h3>
-              <span>(01/2022 - 04/2022)</span>
+              <span>(01/2022 - 03/2022)</span>
               <p>Straive</p>
               <span>Chennai, Tamilnadu, India - 600020</span>
             </div>
