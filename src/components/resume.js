@@ -69,14 +69,14 @@ export default function Resume() {
           <div className="services-container experience">
             <div className="services-format">
               <h3>FrontEnd Software Engineer</h3>
-              <span>(03/2014 - 07/2024)</span>
+              <span>(03/2024 - 07/2024)</span>
               <p>Eutech Cybernetic Private Limited</p>
               <span>Chennai, Tamilnadu, India - 600034</span>
             </div>
 
             <div className="services-format">
               <h3>Web Developer (Freelance)</h3>
-              <span>(01/2014 - 02/2024)</span>
+              <span>(01/2024 - 02/2024)</span>
               <p>AbleLyf</p>
               <span>Doha, Qatar</span>
             </div>
@@ -103,7 +103,7 @@ export default function Resume() {
           <div className="services-container education">
             <div className="services-format">
               <h3>Master of Science (M.S)</h3>
-              <span>(08/2014 - 12/2025)</span>
+              <span>(08/2024 - 12/2025)</span>
               <h2>Information Systems</h2>
               <p>University of Maryland - College Park</p>
               <h4>CGPA : 3.2</h4>
