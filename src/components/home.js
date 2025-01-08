@@ -1,6 +1,7 @@
 import React from "react";
 import Hari2023 from "../images/hariCircle.png";
 import "../css/home.scss";
+import { resumeLink } from "../commonVariables";
 
 export default function Home() {
   return (
@@ -32,9 +33,7 @@ export default function Home() {
           <div
             className="hero-resume"
             onClick={() => {
-              window.open(
-                "https://drive.google.com/file/d/10xGPn-QZlgAMnAgkBZR9HeXN9Y3rb6mw/view"
-              );
+              window.open(resumeLink);
             }}
           >
             My resume

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../src/header.scss";
+import { resumeLink } from "./commonVariables";
 
 export default function Header() {
   return (
@@ -19,9 +20,7 @@ export default function Header() {
           </li>
           <li
             onClick={() => {
-              window.open(
-                "https://drive.google.com/file/d/10xGPn-QZlgAMnAgkBZR9HeXN9Y3rb6mw/view"
-              );
+              window.open(resumeLink);
             }}
           >
             <a className="anchor-link" href="#work">
@@ -35,7 +34,7 @@ export default function Header() {
             </a>
           </li>
           <li
-            className="nav-connect"
+            className="nav-connect hireMeSec"
             onClick={() => {
               document
                 .getElementsByClassName("contactSection")[0]
