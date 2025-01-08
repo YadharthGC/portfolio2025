@@ -20,7 +20,7 @@ export default function Header() {
           <li
             onClick={() => {
               window.open(
-                "https://drive.google.com/file/d/1ADQjf8fVVgVAu-2hCX7tFddhIBYmxZY5/view"
+                "https://drive.google.com/file/d/10xGPn-QZlgAMnAgkBZR9HeXN9Y3rb6mw/view"
               );
             }}
           >

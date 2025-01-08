@@ -33,13 +33,8 @@ export default function Home() {
             className="hero-resume"
             onClick={() => {
               window.open(
-                "https://drive.google.com/file/d/1ADQjf8fVVgVAu-2hCX7tFddhIBYmxZY5/view"
+                "https://drive.google.com/file/d/10xGPn-QZlgAMnAgkBZR9HeXN9Y3rb6mw/view"
               );
-              // let link = document.createElement("a"); // Create a temporary link element
-              // link.href =
-              //   "https://drive.google.com/file/d/1ADQjf8fVVgVAu-2hCX7tFddhIBYmxZY5/view"; // Path to your resume file
-              // link.download = "Hari_Yadharth_Ganesh_Chitra_Resume.pdf"; // File name to save as
-              // link.click();
             }}
           >
             My resume

@@ -4,7 +4,6 @@ import Hari2023 from "../images/2023Hari.jpg";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export default function About() {
-  // https://drive.google.com/file/d/1ADQjf8fVVgVAu-2hCX7tFddhIBYmxZY5/view
   return (
     <div className="aboutSection">
       <div id="about" className="about">
