@@ -68,14 +68,14 @@ export default function Resume() {
         {experience ? (
           <div className="services-container experience">
             <div className="services-format">
-              <h3>FrontEnd Software Engineer</h3>
+              <h3>Software Engineer</h3>
               <span>(03/2024 - 07/2024)</span>
               <p>Eutech Cybernetic Private Limited</p>
               <span>Chennai, Tamilnadu, India - 600034</span>
             </div>
 
             <div className="services-format">
-              <h3>Web Developer (Freelance)</h3>
+              <h3>Software Developer</h3>
               <span>(01/2024 - 02/2024)</span>
               <p>AbleLyf</p>
               <span>Doha, Qatar</span>
