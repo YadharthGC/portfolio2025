@@ -157,7 +157,7 @@ export default function Skills() {
               { name: "Postman", icon: <SiPostman color="#FF6C37" /> },
               { name: "VS Code", icon: <FaCode color="#007ACC" /> },
               { name: "Figma", icon: <SiFigma color="#A259FF" /> },
-              { name: "AWS (S3, Lambda)", icon: <FaAws color="#FF9900" /> },
+              { name: "AWS", icon: <FaAws color="#FF9900" /> },
               { name: "Tableau", icon: <SiTableau color="#E97627" /> },
               // { name: "Power BI", icon: <SiPowerbi color="#F2C811" /> },
             ].map((skill) => (

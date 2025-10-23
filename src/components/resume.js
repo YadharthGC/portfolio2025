@@ -106,7 +106,7 @@ export default function Resume() {
               <span>(08/2024 - 12/2025)</span>
               <h2>Information Systems</h2>
               <p>University of Maryland - College Park</p>
-              <h4>CGPA : 3.2</h4>
+              <h4>CGPA : 3.2/4</h4>
               <h5>College park, Maryland, USA - 20740</h5>
             </div>
 
@@ -115,7 +115,7 @@ export default function Resume() {
               <span>(08/2017 - 04/2021)</span>
               <h2>Mechatronics</h2>
               <p>Dr.Mahalingam College of Engineering and Technology</p>
-              <h4>CGPA : 3.4</h4>
+              <h4>CGPA : 8.6/10</h4>
               <h5>Pollachi, Tamilnadu, India - 642003</h5>
             </div>
           </div>
