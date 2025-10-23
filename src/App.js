@@ -7,7 +7,10 @@ import Contact from "./components/contact";
 import Services from "./components/services";
 import Resume from "./components/resume";
 import { useState } from "react";
+<<<<<<< HEAD
 import Skills from "./components/skills";
+=======
+>>>>>>> 9aca04c14003996910ebcc1d00565ab498cfd0de
 
 function App() {
   return (
@@ -16,7 +19,10 @@ function App() {
       <Home />
       <About />
       <Resume />
+<<<<<<< HEAD
       <Skills />
+=======
+>>>>>>> 9aca04c14003996910ebcc1d00565ab498cfd0de
       <Services />
       <Contact />
     </div>

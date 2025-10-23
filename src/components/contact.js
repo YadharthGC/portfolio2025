@@ -36,9 +36,15 @@ export default function Contact() {
           <div className="contact-left">
             <h1 style={{ textAlign: "center" }}>Let's talk</h1>
             <p style={{ textAlign: "center" }}>
+<<<<<<< HEAD
               I'm currently seeking full-time opportunities as a
               <span className="roleSpan">
                 &nbsp; Software developer, Full-stack developer, Backend developer,
+=======
+              I'm currently looking for internships and part-time positions as a{" "}
+              <span className="roleSpan">
+                Software developer, Full-stack developer, Backend developer,
+>>>>>>> 9aca04c14003996910ebcc1d00565ab498cfd0de
                 Frontend developer, JavaScript developer, Python developer and
                 Data analyst
               </span>
