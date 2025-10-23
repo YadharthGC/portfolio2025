@@ -3,7 +3,6 @@ import "../src/header.scss";
 import { resumeLink } from "./commonVariables";
 
 export default function Header() {
-<<<<<<< HEAD
 
   const handleResumeClick = () => {
     // Open resume in a new tab
@@ -18,8 +17,6 @@ export default function Header() {
     document.body.removeChild(link);
   };
 
-=======
->>>>>>> 9aca04c14003996910ebcc1d00565ab498cfd0de
   return (
     <div className="headerSection">
       <div className="navbar">
@@ -35,15 +32,7 @@ export default function Header() {
               <p>Services</p>
             </a>
           </li>
-<<<<<<< HEAD
           <li onClick={() => { handleResumeClick() }}>
-=======
-          <li
-            onClick={() => {
-              window.open(resumeLink);
-            }}
-          >
->>>>>>> 9aca04c14003996910ebcc1d00565ab498cfd0de
             <a className="anchor-link" href="#work">
               <p>Resume</p>
             </a>
