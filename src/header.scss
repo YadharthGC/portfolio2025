@@ -1,0 +1,59 @@
+.headerSection {
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  font-family: "Rubik", system-ui;
+  width: 100%;
+
+  .navbar {
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-menu {
+    flex: 0.8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    // gap: 1%;
+    font-size: 16px;
+  }
+  .nameDiv {
+    flex: 0.2;
+
+    font-size: 20px;
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @media screen and (max-width: 768px) {
+    .nameDiv {
+      flex: 0;
+      display: none;
+    }
+    .hireMeSec {
+      display: none;
+    }
+    .nav-menu {
+      padding: 0;
+      flex: 1;
+    }
+  }
+  .anchor-link {
+    text-decoration: none;
+    color: #fff;
+  }
+  .nav-connect {
+    padding: 10px 15px;
+    border-radius: 50px;
+    background: linear-gradient(267deg, #da7c25 0.36%, #b923e1 102.06%);
+    font-size: 16px;
+    cursor: pointer;
+  }
+}

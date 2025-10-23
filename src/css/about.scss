@@ -1,0 +1,90 @@
+.aboutSection {
+  .about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2% 10%;
+    font-family: "Rubik", system-ui;
+    margin-bottom: 0%;
+  }
+  .title-box h1 {
+    font-size: 60px;
+    font-weight: 600;
+  }
+  .about-sections {
+    display: flex;
+    gap: 60px;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column; /* Stack vertically */
+      gap: 20px; /* Adjust gap for mobile */
+    }
+  }
+  .about-left img {
+    width: 300px;
+    height: 400px;
+    object-fit: contain;
+    border-radius: 20px;
+  }
+  .about-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .about-para {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .about-achievements {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 30px;
+  }
+  .about-achievement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-achievement h1 {
+    font-size: 40px;
+    font-weight: 700;
+    background: linear-gradient(270deg, #df8908 50.41%, #b415ff 90.25%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+  }
+  .about-achievement p {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: 1024px) {
+    hr {
+      display: none;
+    }
+    .about-achievement h1 {
+      text-align: center;
+    }
+    .about-achievement p {
+      text-align: center;
+    }
+  }
+  .skillSpan {
+    background: #df8908;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .linkedInSpan {
+    margin-top: 5px;
+  }
+  #linkedInIcon {
+    font-size: 45px !important;
+  }
+}
