@@ -22,17 +22,11 @@
   .services-container.experience {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-<<<<<<< HEAD
 
     @media screen and (max-width: 768px) {
       grid-template-columns: 1fr;
     }
 
-=======
-    @media screen and (max-width: 768px) {
-      grid-template-columns: 1fr;
-    }
->>>>>>> 9aca04c14003996910ebcc1d00565ab498cfd0de
     gap: 10px;
     margin-bottom: 50px;
 
@@ -51,7 +45,6 @@
       margin-bottom: 0px !important;
     }
   }
-<<<<<<< HEAD
 
   .services-container.education {
     display: grid;
@@ -65,17 +58,6 @@
     margin-bottom: 50px;
   }
 
-=======
-  .services-container.education {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    @media screen and (max-width: 768px) {
-      grid-template-columns: 1fr;
-    }
-    gap: 10px;
-    margin-bottom: 50px;
-  }
->>>>>>> 9aca04c14003996910ebcc1d00565ab498cfd0de
   .services-format {
     display: flex;
     flex-direction: column;
@@ -86,10 +68,7 @@
     border: 2px solid white;
     cursor: pointer;
   }
-<<<<<<< HEAD
 
-=======
->>>>>>> 9aca04c14003996910ebcc1d00565ab498cfd0de
   .services-format h3 {
     font-size: 22px;
     font-weight: 600;
@@ -127,32 +106,20 @@
     max-width: 300px;
     margin: 0px;
   }
-<<<<<<< HEAD
 
   .services-format h4 {
     margin: 0px;
   }
 
-=======
-  .services-format h4 {
-    margin: 0px;
-  }
->>>>>>> 9aca04c14003996910ebcc1d00565ab498cfd0de
   .services-format h5 {
     margin-top: 2px;
     margin-bottom: 0px;
   }
-<<<<<<< HEAD
 
   .services-format span {
     color: gray;
   }
 
-=======
-  .services-format span {
-    color: gray;
-  }
->>>>>>> 9aca04c14003996910ebcc1d00565ab498cfd0de
   .resumeBtns {
     display: flex;
     justify-content: center;
@@ -172,8 +139,4 @@
       background: linear-gradient(270deg, #df8908 50%, #b415ff 100%);
     }
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9aca04c14003996910ebcc1d00565ab498cfd0de

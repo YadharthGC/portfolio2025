@@ -67,7 +67,6 @@ export default function Resume() {
       <div className="resumePages">
         {experience ? (
           <div className="services-container experience">
-<<<<<<< HEAD
 
             <div className="services-format">
               <h3>Software Developer</h3>
@@ -75,8 +74,6 @@ export default function Resume() {
               <p>Premier Health Group</p>
               <span>Washington, DC, USA - 20012</span>
             </div>
-=======
->>>>>>> 9aca04c14003996910ebcc1d00565ab498cfd0de
             <div className="services-format">
               <h3>Software Engineer</h3>
               <span>(03/2024 - 07/2024)</span>
@@ -88,28 +85,12 @@ export default function Resume() {
               <h3>Software Developer</h3>
               <span>(01/2024 - 02/2024)</span>
               <p>AbleLyf</p>
-<<<<<<< HEAD
               <span>Chennai, Tamilnadu, India (Remote)</span>
             </div>
 
             <div className="services-format">
               <h3>Software Developer</h3>
               <span>(01/2022 - 12/2023)</span>
-=======
-              <span>Doha, Qatar</span>
-            </div>
-
-            <div className="services-format">
-              <h3>Junior Executive</h3>
-              <span>(04/2022 - 12/2023)</span>
-              <p>Straive</p>
-              <span>Chennai, Tamilnadu, India - 600020</span>
-            </div>
-
-            <div className="services-format">
-              <h3>Trainee Developer</h3>
-              <span>(01/2022 - 03/2022)</span>
->>>>>>> 9aca04c14003996910ebcc1d00565ab498cfd0de
               <p>Straive</p>
               <span>Chennai, Tamilnadu, India - 600020</span>
             </div>
