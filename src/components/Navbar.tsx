@@ -70,7 +70,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="/Hari_Yadharth_Resume.pdf"
+            href={`${import.meta.env.BASE_URL}Hari_Yadharth_Resume.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             className="ml-4 rounded-full border border-primary/40 px-5 py-2 text-sm font-medium text-primary transition-all duration-300 hover:bg-primary/10 hover:shadow-lg hover:shadow-primary/20"
