@@ -79,28 +79,38 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="flex flex-col gap-1.5 md:hidden"
-          aria-label="Toggle menu"
-        >
-          <motion.span
-            animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            className="block h-0.5 w-6"
-            style={{ background: 'var(--text-1)' }}
-          />
-          <motion.span
-            animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block h-0.5 w-6"
-            style={{ background: 'var(--text-1)' }}
-          />
-          <motion.span
-            animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            className="block h-0.5 w-6"
-            style={{ background: 'var(--text-1)' }}
-          />
-        </button>
+        {/* Mobile: Resume button + hamburger */}
+        <div className="flex items-center gap-3 md:hidden">
+          <a
+            href={`${import.meta.env.BASE_URL}Hari_Yadharth_Resume.pdf`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-primary/40 px-4 py-1.5 text-sm font-medium text-primary transition-all duration-300 hover:bg-primary/10"
+          >
+            Resume
+          </a>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="flex flex-col gap-1.5"
+            aria-label="Toggle menu"
+          >
+            <motion.span
+              animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+              className="block h-0.5 w-6"
+              style={{ background: 'var(--text-1)' }}
+            />
+            <motion.span
+              animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
+              className="block h-0.5 w-6"
+              style={{ background: 'var(--text-1)' }}
+            />
+            <motion.span
+              animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+              className="block h-0.5 w-6"
+              style={{ background: 'var(--text-1)' }}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

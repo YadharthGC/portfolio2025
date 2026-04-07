@@ -44,7 +44,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center px-6 text-center"
+      className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20 sm:pt-6 text-center"
     >
       {/* Animated mesh gradient orbs */}
       <motion.div
@@ -94,7 +94,7 @@ export default function Hero() {
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium"
+          className="mt-4 sm:mt-0 mb-8 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium"
           style={{
             background: isDark ? 'rgba(6,182,212,0.08)' : 'rgba(6,182,212,0.1)',
             border: `1px solid ${isDark ? 'rgba(6,182,212,0.2)' : 'rgba(6,182,212,0.25)'}`,
@@ -243,7 +243,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-10 z-10"
+        className="absolute bottom-10 z-10 hidden sm:block"
       >
         <motion.div
           animate={{ y: [0, 12, 0] }}
