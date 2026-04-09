@@ -13,16 +13,13 @@ export default function ThemeToggle() {
       transition={{ delay: 1, type: 'spring', stiffness: 200 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      className="fixed bottom-4 right-4 z-[100] flex h-11 w-11 items-center justify-center rounded-full shadow-2xl transition-colors duration-500 sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
+      className="fixed bottom-4 right-4 z-[100] flex h-10 w-10 items-center justify-center rounded-full shadow-xl transition-colors duration-500 sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
       style={{
         background: isDark
           ? 'linear-gradient(135deg, rgba(var(--particle-primary), 0.15), rgba(var(--particle-secondary), 0.15))'
           : 'linear-gradient(135deg, rgba(var(--particle-primary), 0.2), rgba(var(--particle-accent), 0.2))',
         backdropFilter: 'blur(20px)',
         border: `1px solid ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'}`,
-        boxShadow: isDark
-          ? '0 8px 32px rgba(var(--particle-primary), 0.2), 0 0 60px rgba(var(--particle-secondary), 0.1)'
-          : '0 8px 32px rgba(var(--particle-primary), 0.15), 0 4px 12px rgba(0,0,0,0.1)',
       }}
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
@@ -34,8 +31,7 @@ export default function ThemeToggle() {
             animate={{ rotate: 0, scale: 1 }}
             exit={{ rotate: 90, scale: 0 }}
             transition={{ duration: 0.3 }}
-            width="24"
-            height="24"
+            className="h-4 w-4 sm:h-6 sm:w-6"
             viewBox="0 0 24 24"
             fill="none"
             stroke="var(--color-primary)"
@@ -60,8 +56,7 @@ export default function ThemeToggle() {
             animate={{ rotate: 0, scale: 1 }}
             exit={{ rotate: -90, scale: 0 }}
             transition={{ duration: 0.3 }}
-            width="22"
-            height="22"
+            className="h-4 w-4 sm:h-[22px] sm:w-[22px]"
             viewBox="0 0 24 24"
             fill="none"
             stroke="var(--color-secondary)"
