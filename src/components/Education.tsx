@@ -2,71 +2,9 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiAward, FiMapPin, FiExternalLink, FiChevronDown } from 'react-icons/fi';
 import SectionHeading from './SectionHeading';
+import LogoWithFallback from './shared/LogoWithFallback';
+import Tag from './shared/Tag';
 import { education, certifications } from '../lib/data';
-
-function Logo({ src, alt }: { src: string; alt: string }) {
-  const [error, setError] = useState(false);
-  const initials = alt
-    .split(' ')
-    .map((w) => w[0])
-    .join('')
-    .slice(0, 2)
-    .toUpperCase();
-
-  if (error) {
-    return (
-      <div
-        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-[10px] font-bold"
-        style={{
-          background: 'linear-gradient(135deg, rgba(6,182,212,0.15), rgba(139,92,246,0.15))',
-          color: 'var(--text-2)',
-          border: '1px solid var(--border)',
-        }}
-      >
-        {initials}
-      </div>
-    );
-  }
-
-  return (
-    <img
-      src={src}
-      alt={alt}
-      onError={() => setError(true)}
-      className="h-8 w-8 shrink-0 rounded-lg object-cover"
-      style={{ border: '1px solid var(--border)' }}
-    />
-  );
-}
-
-function CertLogo({ src, alt }: { src: string; alt: string }) {
-  const [error, setError] = useState(false);
-
-  if (error) {
-    return (
-      <div
-        className="flex h-5 w-5 shrink-0 items-center justify-center rounded text-[8px] font-bold"
-        style={{
-          background: 'rgba(6,182,212,0.1)',
-          color: 'var(--text-3)',
-          border: '1px solid var(--border)',
-        }}
-      >
-        {alt[0]}
-      </div>
-    );
-  }
-
-  return (
-    <img
-      src={src}
-      alt={alt}
-      onError={() => setError(true)}
-      className="h-5 w-5 shrink-0 rounded object-cover"
-      style={{ border: '1px solid var(--border)' }}
-    />
-  );
-}
 
 export default function Education() {
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -102,7 +40,7 @@ export default function Education() {
 
                     {/* Degree + Logo */}
                     <div className="mb-2 flex items-center gap-3">
-                      <Logo src={edu.logo} alt={edu.school} />
+                      <LogoWithFallback src={edu.logo} alt={edu.school} />
                       <div>
                         <h4 className="text-lg font-bold" style={{ color: 'var(--text-1)' }}>
                           {edu.degree}
@@ -152,17 +90,7 @@ export default function Education() {
                         >
                           <div className="mt-3 flex flex-wrap gap-2">
                             {edu.coursework.map((c) => (
-                              <span
-                                key={c}
-                                className="rounded-full px-2.5 py-1 text-xs font-medium"
-                                style={{
-                                  background: 'rgba(6,182,212,0.08)',
-                                  color: '#06b6d4',
-                                  border: '1px solid rgba(6,182,212,0.15)',
-                                }}
-                              >
-                                {c}
-                              </span>
+                              <Tag key={c} label={c} />
                             ))}
                           </div>
                         </motion.div>
@@ -199,18 +127,17 @@ export default function Education() {
                       <FiAward className="text-primary" size={16} />
                       <span className="text-xs font-medium text-primary">{cert.year}</span>
                     </div>
-                    {cert.verifyUrl && cert.verifyUrl !== '#' && (
+                    {cert.verifyUrl ? (
                       <a
                         href={cert.verifyUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-1 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-primary transition-all hover:bg-primary/10"
-                        style={{ border: '1px solid rgba(6,182,212,0.25)' }}
+                        style={{ border: '1px solid rgba(var(--particle-primary), 0.25)' }}
                       >
                         Verify <FiExternalLink size={10} />
                       </a>
-                    )}
-                    {cert.verifyUrl === '#' && (
+                    ) : (
                       <span
                         className="rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider"
                         style={{
@@ -233,7 +160,7 @@ export default function Education() {
 
                   {/* Issuer + platform logo */}
                   <div className="mb-3 flex items-center gap-2 text-sm">
-                    <CertLogo src={cert.logo} alt={cert.platform} />
+                    <LogoWithFallback src={cert.logo} alt={cert.platform} size="sm" />
                     <span style={{ color: 'var(--text-2)' }}>
                       {cert.issuer} <span style={{ color: 'var(--text-3)' }}>via {cert.platform}</span>
                     </span>

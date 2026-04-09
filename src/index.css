@@ -29,6 +29,7 @@
   --shadow: rgba(0, 0, 0, 0.5);
   --particle-primary: 6, 182, 212;
   --particle-secondary: 139, 92, 246;
+  --particle-accent: 99, 102, 241;
   --glow-alpha: 0.15;
 }
 
@@ -47,6 +48,7 @@
   --shadow: rgba(0, 0, 0, 0.08);
   --particle-primary: 6, 140, 180;
   --particle-secondary: 120, 70, 220;
+  --particle-accent: 80, 82, 210;
   --glow-alpha: 0.08;
 }
 
@@ -83,7 +85,7 @@
   }
 
   ::selection {
-    background: rgba(6, 182, 212, 0.3);
+    background: rgba(var(--particle-primary), 0.3);
     color: #fff;
   }
 }
@@ -106,27 +108,10 @@
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #06b6d4, #8b5cf6, #6366f1);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary), var(--color-accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-  }
-
-  .gradient-border {
-    position: relative;
-  }
-  .gradient-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, #06b6d4, #8b5cf6, #6366f1);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    -webkit-mask-composite: xor;
-    pointer-events: none;
   }
 
   .glow {
@@ -136,11 +121,11 @@
   }
 
   .glow-text {
-    text-shadow: 0 0 40px rgba(6, 182, 212, 0.5);
+    text-shadow: 0 0 40px rgba(var(--particle-primary), 0.5);
   }
 
   [data-theme="light"] .glow-text {
-    text-shadow: 0 0 30px rgba(6, 182, 212, 0.25);
+    text-shadow: 0 0 30px rgba(var(--particle-primary), 0.25);
   }
 
   /* Light mode card shadows */
@@ -148,46 +133,6 @@
     box-shadow: 0 1px 3px var(--shadow), 0 4px 20px rgba(0,0,0,0.04);
   }
   [data-theme="light"] .glass:hover {
-    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.08), 0 8px 40px rgba(139, 92, 246, 0.06);
-  }
-
-  /* Magnetic hover effect */
-  .magnetic {
-    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  /* Animated gradient border */
-  @keyframes borderRotate {
-    to { --angle: 360deg; }
-  }
-
-  .animate-border {
-    background: linear-gradient(var(--bg), var(--bg)) padding-box,
-                conic-gradient(from var(--angle, 0deg), #06b6d4, #8b5cf6, #6366f1, #06b6d4) border-box;
-    border: 2px solid transparent;
-    animation: borderRotate 4s linear infinite;
-  }
-
-  @property --angle {
-    syntax: '<angle>';
-    initial-value: 0deg;
-    inherits: false;
-  }
-
-  /* Shimmer effect */
-  @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
-  }
-
-  .shimmer {
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(var(--particle-primary), 0.08) 50%,
-      transparent 100%
-    );
-    background-size: 200% 100%;
-    animation: shimmer 3s ease-in-out infinite;
+    box-shadow: 0 4px 20px rgba(var(--particle-primary), 0.08), 0 8px 40px rgba(var(--particle-secondary), 0.06);
   }
 }

@@ -6,6 +6,7 @@ import ParticleBackground from './components/ParticleBackground';
 import CursorGlow from './components/CursorGlow';
 import ThemeToggle from './components/ThemeToggle';
 import Footer from './components/Footer';
+import ErrorBoundary from './components/ErrorBoundary';
 
 const About = lazy(() => import('./components/About'));
 const Skills = lazy(() => import('./components/Skills'));
@@ -13,6 +14,14 @@ const Experience = lazy(() => import('./components/Experience'));
 const Projects = lazy(() => import('./components/Projects'));
 const Education = lazy(() => import('./components/Education'));
 const Contact = lazy(() => import('./components/Contact'));
+
+function SectionLoader() {
+  return (
+    <div className="flex min-h-[20vh] items-center justify-center">
+      <div className="h-6 w-6 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+    </div>
+  );
+}
 
 function App() {
   return (
@@ -22,14 +31,16 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Suspense>
-          <About />
-          <Skills />
-          <Experience />
-          <Projects />
-          <Education />
-          <Contact />
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader />}>
+            <About />
+            <Skills />
+            <Experience />
+            <Projects />
+            <Education />
+            <Contact />
+          </Suspense>
+        </ErrorBoundary>
       </main>
       <Footer />
       <ThemeToggle />

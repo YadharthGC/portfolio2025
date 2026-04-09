@@ -11,15 +11,33 @@ export const personalInfo = {
     'Full-stack engineer with 3+ years building production web apps in healthcare and enterprise — now expanding into AI engineering. React, Angular, TypeScript, Node, LangChain, RAG, and AWS under the belt. MS in Information Systems @ UMD.',
 };
 
-export const skills = {
-  Languages: ['JavaScript', 'TypeScript', 'Python', 'C/C++', 'SQL'],
-  Frontend: ['React.js', 'Angular', 'Next.js', 'Redux', 'Socket.IO'],
-  Backend: ['Node.js', 'Express.js', 'RESTful APIs', 'GraphQL'],
-  Databases: ['PostgreSQL', 'MongoDB', 'MySQL'],
-  Cloud: ['AWS', 'GCP'],
-  'AI/ML': ['LangChain', 'RAG', 'LLMs', 'TensorFlow', 'PyTorch'],
-  Tools: ['Figma', 'Postman', 'JIRA', 'GitHub', 'Tableau'],
-};
+export interface SocialLink {
+  icon: string;
+  label: string;
+  value: string;
+  href: string;
+}
+
+export const socials: SocialLink[] = [
+  {
+    icon: 'mail',
+    label: 'Email',
+    value: personalInfo.email,
+    href: `mailto:${personalInfo.email}`,
+  },
+  {
+    icon: 'linkedin',
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/yadharthgc',
+    href: personalInfo.linkedin,
+  },
+  {
+    icon: 'github',
+    label: 'GitHub',
+    value: 'github.com/YadharthGC',
+    href: personalInfo.github,
+  },
+];
 
 export interface Experience {
   company: string;
@@ -94,16 +112,54 @@ export interface FeaturedProject {
 
 export const featuredProjects: FeaturedProject[] = [
   {
+    name: 'NODI Copy Editing Platform',
+    description:
+      'Browser-based copy editor with real-time grammar checking, smart formatting, and collaborative markup. Reduced editing time by 30% and boosted user engagement by 25%.',
+    tech: ['React.js', 'Node.js', 'MongoDB', 'Express.js'],
+  },
+  {
+    name: 'MotionSense — Autism Movement Tracker',
+    description:
+      'Web app for therapists and educators to monitor and analyze movement patterns in autism-spectrum students, enabling early behavioral insights through real-time motion detection.',
+    tech: ['React', 'TypeScript', 'FastAPI', 'ML/CV'],
+  },
+  {
     name: 'HealthCare Information System (HIS)',
     description:
-      'Patient management platform improving clinical workflows with a 40% database efficiency boost.',
+      'Enterprise patient management platform streamlining clinical workflows, scheduling, and medical records with a 40% database efficiency boost.',
     tech: ['Angular', 'TypeScript', 'PostgreSQL', 'RESTful APIs'],
   },
   {
-    name: 'NODI Copy Editing Platform',
+    name: 'Aegis Health Platform',
     description:
-      'Web-based copy editor with grammar-check and formatting. Reduced editing time by 30% and boosted user engagement by 25%.',
-    tech: ['React.js', 'Node.js', 'MongoDB', 'Express.js'],
+      'Scalable clinical information system with role-based access control and HIPAA-compliant data handling for multi-site healthcare organizations.',
+    tech: ['Angular', 'Node.js', 'PostgreSQL', 'HIPAA'],
+  },
+];
+
+export interface ShowcaseProject {
+  name: string;
+  description: string;
+  tech: string[];
+  github?: string;
+  live?: string;
+  badge?: string;
+}
+
+export const showcaseProjects: ShowcaseProject[] = [
+  {
+    name: 'ProfileIQ',
+    description:
+      'LinkedIn RAG chatbot answering questions about your profile using LangChain, ChromaDB, FastAPI, and React. Deployed on Render.',
+    tech: ['LangChain', 'ChromaDB', 'FastAPI', 'React'],
+    github: 'https://github.com/YadharthGC/ProfileIQ',
+  },
+  {
+    name: 'FinShield AI',
+    description:
+      'Production-grade credit card fraud detection platform with fine-tuned TinyLlama (LoRA/QLoRA), LangGraph RAG agent, NeMo Guardrails, and a React dashboard backed by FastAPI + AWS SageMaker.',
+    tech: ['TinyLlama', 'LangGraph', 'NeMo Guardrails', 'FastAPI', 'React', 'AWS SageMaker'],
+    badge: 'In progress',
   },
 ];
 
@@ -156,7 +212,6 @@ export const certifications: Certification[] = [
     year: '2026',
     logo: '/logos/coursera_logo.jpg',
     description: 'Designed multi-step AI agents using LangChain, tool orchestration, and autonomous reasoning pipelines',
-    verifyUrl: '#',
   },
   {
     name: 'AWS Cloud Solutions Architect Professional Certificate',
@@ -165,7 +220,6 @@ export const certifications: Certification[] = [
     year: '2025',
     logo: '/logos/coursera_logo.jpg',
     description: 'Architected scalable cloud infrastructure — VPCs, EC2, S3, IAM, Lambda, and high-availability design',
-    verifyUrl: '#',
   },
   {
     name: 'Full-Stack Web Development',
@@ -174,7 +228,6 @@ export const certifications: Certification[] = [
     year: '2021',
     logo: '/logos/guviofficial_logo.jpg',
     description: 'Built end-to-end web applications with HTML, CSS, JavaScript, React, Node.js, and MongoDB',
-    verifyUrl: '#',
   },
 ];
 

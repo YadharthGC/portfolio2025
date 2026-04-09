@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiExternalLink, FiStar, FiGitBranch } from 'react-icons/fi';
+import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import SectionHeading from './SectionHeading';
-import { fetchGitHubRepos, languageColors, type GitHubRepo } from '../lib/github';
-import { featuredProjects, personalInfo } from '../lib/data';
-import { useTheme } from '../lib/theme';
+import Tag from './shared/Tag';
+import { featuredProjects, showcaseProjects } from '../lib/data';
 
 function ProjectCard({
   title,
@@ -12,9 +11,7 @@ function ProjectCard({
   tech,
   github,
   live,
-  stars,
-  forks,
-  language,
+  badge,
   index,
 }: {
   title: string;
@@ -22,14 +19,10 @@ function ProjectCard({
   tech: string[];
   github?: string;
   live?: string;
-  stars?: number;
-  forks?: number;
-  language?: string | null;
+  badge?: string;
   index: number;
 }) {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
 
   const handleMouse = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -53,21 +46,25 @@ function ProjectCard({
       className="glass group rounded-2xl p-6 transition-all duration-300"
     >
       <div className="mb-4 flex items-start justify-between">
+        <h3
+          className="text-lg font-bold transition-colors group-hover:text-primary"
+          style={{ color: 'var(--text-1)' }}
+        >
+          {title}
+        </h3>
         <div className="flex items-center gap-2">
-          {language && (
+          {badge && (
             <span
-              className="h-3 w-3 rounded-full"
-              style={{ backgroundColor: languageColors[language] || '#888' }}
-            />
+              className="shrink-0 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider"
+              style={{
+                background: 'rgba(var(--particle-secondary), 0.12)',
+                color: 'var(--color-secondary)',
+                border: '1px solid rgba(var(--particle-secondary), 0.25)',
+              }}
+            >
+              {badge}
+            </span>
           )}
-          <h3
-            className="text-lg font-bold transition-colors group-hover:text-primary"
-            style={{ color: 'var(--text-1)' }}
-          >
-            {title}
-          </h3>
-        </div>
-        <div className="flex gap-2">
           {github && (
             <a
               href={github}
@@ -95,51 +92,20 @@ function ProjectCard({
         </div>
       </div>
 
-      <p className="mb-4 text-sm leading-relaxed line-clamp-3" style={{ color: 'var(--text-2)' }}>
-        {description || 'No description available.'}
+      <p className="mb-4 text-sm leading-relaxed" style={{ color: 'var(--text-2)' }}>
+        {description}
       </p>
 
-      <div className="mb-4 flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2">
         {tech.map((t) => (
-          <span
-            key={t}
-            className="rounded-full px-2.5 py-1 text-xs font-medium"
-            style={{
-              background: isDark ? 'rgba(6,182,212,0.08)' : 'rgba(6,182,212,0.1)',
-              color: '#06b6d4',
-              border: `1px solid ${isDark ? 'rgba(6,182,212,0.15)' : 'rgba(6,182,212,0.2)'}`,
-            }}
-          >
-            {t}
-          </span>
+          <Tag key={t} label={t} />
         ))}
       </div>
-
-      {(stars !== undefined || forks !== undefined) && (
-        <div className="flex gap-4 text-xs" style={{ color: 'var(--text-3)' }}>
-          {stars !== undefined && stars > 0 && (
-            <span className="flex items-center gap-1">
-              <FiStar size={12} /> {stars}
-            </span>
-          )}
-          {forks !== undefined && forks > 0 && (
-            <span className="flex items-center gap-1">
-              <FiGitBranch size={12} /> {forks}
-            </span>
-          )}
-        </div>
-      )}
     </motion.div>
   );
 }
 
 export default function Projects() {
-  const [repos, setRepos] = useState<GitHubRepo[]>([]);
-
-  useEffect(() => {
-    fetchGitHubRepos(personalInfo.githubUsername).then(setRepos);
-  }, []);
-
   return (
     <section id="projects" className="relative py-28 px-6">
       <div
@@ -167,29 +133,23 @@ export default function Projects() {
           ))}
         </div>
 
-        {repos.length > 0 && (
-          <>
-            <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider" style={{ color: 'var(--text-3)' }}>
-              From GitHub
-            </h3>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {repos.map((repo, i) => (
-                <ProjectCard
-                  key={repo.id}
-                  title={repo.name}
-                  description={repo.description || ''}
-                  tech={repo.topics?.length ? repo.topics : repo.language ? [repo.language] : []}
-                  github={repo.html_url}
-                  live={repo.homepage || undefined}
-                  stars={repo.stargazers_count}
-                  forks={repo.forks_count}
-                  language={repo.language}
-                  index={i}
-                />
-              ))}
-            </div>
-          </>
-        )}
+        <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider" style={{ color: 'var(--text-3)' }}>
+          From GitHub
+        </h3>
+        <div className="grid gap-6 sm:grid-cols-2">
+          {showcaseProjects.map((p, i) => (
+            <ProjectCard
+              key={p.name}
+              title={p.name}
+              description={p.description}
+              tech={p.tech}
+              github={p.github}
+              live={p.live}
+              badge={p.badge}
+              index={i}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

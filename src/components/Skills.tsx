@@ -55,7 +55,7 @@ interface SkillCategory {
 const skillCategories: SkillCategory[] = [
   {
     label: 'Languages',
-    emoji: '💻',
+    emoji: '\u{1F4BB}',
     items: [
       { name: 'JavaScript', icon: SiJavascript, color: '#f7df1e' },
       { name: 'TypeScript', icon: SiTypescript, color: '#3178c6' },
@@ -67,7 +67,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     label: 'Frontend',
-    emoji: '🎨',
+    emoji: '\u{1F3A8}',
     items: [
       { name: 'React.js', icon: SiReact, color: '#61dafb' },
       { name: 'Angular', icon: SiAngular, color: '#dd0031' },
@@ -78,7 +78,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     label: 'Styling & UI',
-    emoji: '✨',
+    emoji: '\u2728',
     items: [
       { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06b6d4' },
       { name: 'Material UI', icon: SiMui, color: '#007fff' },
@@ -89,7 +89,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     label: 'Backend',
-    emoji: '⚙️',
+    emoji: '\u2699\uFE0F',
     items: [
       { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
       { name: 'Express.js', icon: SiExpress, color: '#a0a0a0' },
@@ -99,7 +99,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     label: 'Databases',
-    emoji: '🗄️',
+    emoji: '\u{1F5C4}\uFE0F',
     items: [
       { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169e1' },
       { name: 'MongoDB', icon: SiMongodb, color: '#47a248' },
@@ -108,7 +108,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     label: 'Cloud',
-    emoji: '☁️',
+    emoji: '\u2601\uFE0F',
     items: [
       { name: 'AWS', icon: FaAws, color: '#ff9900' },
       { name: 'GCP', icon: SiGooglecloud, color: '#4285f4' },
@@ -116,7 +116,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     label: 'AI/ML',
-    emoji: '🤖',
+    emoji: '\u{1F916}',
     items: [
       { name: 'LangChain', icon: SiLangchain, color: '#1c3c3c' },
       { name: 'RAG', icon: TbBrain, color: '#8b5cf6' },
@@ -128,7 +128,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     label: 'Tools',
-    emoji: '🔧',
+    emoji: '\u{1F527}',
     items: [
       { name: 'VS Code', icon: VscVscode, color: '#007acc' },
       { name: 'Figma', icon: SiFigma, color: '#f24e1e' },
@@ -151,7 +151,7 @@ export default function Skills() {
     <section id="skills" className="relative py-28 px-6">
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full blur-[150px] transition-colors duration-700"
-        style={{ background: `rgba(var(--particle-secondary), 0.07)` }}
+        style={{ background: 'rgba(var(--particle-secondary), 0.07)' }}
       />
 
       <div className="relative mx-auto max-w-6xl">
@@ -186,27 +186,16 @@ export default function Skills() {
                     whileHover={{
                       scale: 1.08,
                       y: -3,
+                      borderColor: skill.color + '44',
+                      backgroundColor: skill.color + '12',
+                      color: skill.color,
                       boxShadow: `0 8px 25px ${skill.color}22`,
                     }}
-                    className="group flex cursor-default items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-sm font-medium transition-all duration-300"
+                    className="group flex cursor-default items-center gap-2.5 rounded-xl border px-3.5 py-2.5 text-sm font-medium transition-all duration-300"
                     style={{
                       background: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.03)',
-                      border: `1px solid ${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)'}`,
+                      borderColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
                       color: 'var(--text-2)',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = skill.color + '44';
-                      e.currentTarget.style.background = skill.color + '12';
-                      e.currentTarget.style.color = skill.color;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = isDark
-                        ? 'rgba(255,255,255,0.06)'
-                        : 'rgba(0,0,0,0.06)';
-                      e.currentTarget.style.background = isDark
-                        ? 'rgba(255,255,255,0.04)'
-                        : 'rgba(0,0,0,0.03)';
-                      e.currentTarget.style.color = 'var(--text-2)';
                     }}
                   >
                     <skill.icon

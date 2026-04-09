@@ -16,13 +16,13 @@ export default function ThemeToggle() {
       className="fixed bottom-6 right-6 z-[100] flex h-14 w-14 items-center justify-center rounded-full shadow-2xl transition-colors duration-500"
       style={{
         background: isDark
-          ? 'linear-gradient(135deg, rgba(6,182,212,0.15), rgba(139,92,246,0.15))'
-          : 'linear-gradient(135deg, rgba(6,182,212,0.2), rgba(99,102,241,0.2))',
+          ? 'linear-gradient(135deg, rgba(var(--particle-primary), 0.15), rgba(var(--particle-secondary), 0.15))'
+          : 'linear-gradient(135deg, rgba(var(--particle-primary), 0.2), rgba(var(--particle-accent), 0.2))',
         backdropFilter: 'blur(20px)',
         border: `1px solid ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'}`,
         boxShadow: isDark
-          ? '0 8px 32px rgba(6,182,212,0.2), 0 0 60px rgba(139,92,246,0.1)'
-          : '0 8px 32px rgba(6,182,212,0.15), 0 4px 12px rgba(0,0,0,0.1)',
+          ? '0 8px 32px rgba(var(--particle-primary), 0.2), 0 0 60px rgba(var(--particle-secondary), 0.1)'
+          : '0 8px 32px rgba(var(--particle-primary), 0.15), 0 4px 12px rgba(0,0,0,0.1)',
       }}
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
@@ -38,7 +38,7 @@ export default function ThemeToggle() {
             height="24"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#06b6d4"
+            stroke="var(--color-primary)"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -64,7 +64,7 @@ export default function ThemeToggle() {
             height="22"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#8b5cf6"
+            stroke="var(--color-secondary)"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"

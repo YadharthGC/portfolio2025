@@ -1,43 +1,8 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMapPin } from 'react-icons/fi';
 import SectionHeading from './SectionHeading';
+import LogoWithFallback from './shared/LogoWithFallback';
 import { experiences } from '../lib/data';
-
-function CompanyLogo({ src, company }: { src?: string; company: string }) {
-  const [error, setError] = useState(false);
-  const initials = company
-    .split(' ')
-    .map((w) => w[0])
-    .join('')
-    .slice(0, 2)
-    .toUpperCase();
-
-  if (!src || error) {
-    return (
-      <div
-        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-xs font-bold"
-        style={{
-          background: 'linear-gradient(135deg, rgba(6,182,212,0.15), rgba(139,92,246,0.15))',
-          color: 'var(--text-2)',
-          border: '1px solid var(--border)',
-        }}
-      >
-        {initials}
-      </div>
-    );
-  }
-
-  return (
-    <img
-      src={src}
-      alt={company}
-      onError={() => setError(true)}
-      className="h-8 w-8 shrink-0 rounded-lg object-cover"
-      style={{ border: '1px solid var(--border)' }}
-    />
-  );
-}
 
 export default function Experience() {
   return (
@@ -84,7 +49,7 @@ export default function Experience() {
                       {exp.role}
                     </h3>
                     <div className="mb-4 flex items-center gap-3 text-sm">
-                      <CompanyLogo src={exp.logo} company={exp.company} />
+                      <LogoWithFallback src={exp.logo} alt={exp.company} />
                       <div className="flex flex-col">
                         <span className="font-medium text-secondary">{exp.company}</span>
                         <span className="flex items-center gap-1 text-xs" style={{ color: 'var(--text-3)' }}>

@@ -11,23 +11,15 @@ export interface GitHubRepo {
   updated_at: string;
 }
 
-export async function fetchGitHubRepos(username: string): Promise<GitHubRepo[]> {
+export async function fetchGitHubRepos(
+  username: string,
+  signal?: AbortSignal
+): Promise<GitHubRepo[]> {
   const res = await fetch(
-    `https://api.github.com/users/${username}/repos?sort=updated&per_page=6&type=public`
+    `https://api.github.com/users/${username}/repos?sort=updated&per_page=6&type=public`,
+    { signal }
   );
   if (!res.ok) return [];
-  return res.json();
-}
-
-export interface GitHubStats {
-  public_repos: number;
-  followers: number;
-  public_gists: number;
-}
-
-export async function fetchGitHubStats(username: string): Promise<GitHubStats | null> {
-  const res = await fetch(`https://api.github.com/users/${username}`);
-  if (!res.ok) return null;
   return res.json();
 }
 
