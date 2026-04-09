@@ -13,7 +13,7 @@ export default function ThemeToggle() {
       transition={{ delay: 1, type: 'spring', stiffness: 200 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      className="fixed bottom-6 right-6 z-[100] flex h-14 w-14 items-center justify-center rounded-full shadow-2xl transition-colors duration-500"
+      className="fixed bottom-4 right-4 z-[100] flex h-11 w-11 items-center justify-center rounded-full shadow-2xl transition-colors duration-500 sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
       style={{
         background: isDark
           ? 'linear-gradient(135deg, rgba(var(--particle-primary), 0.15), rgba(var(--particle-secondary), 0.15))'
