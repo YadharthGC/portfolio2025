@@ -109,22 +109,22 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="flex h-10 w-10 flex-col items-center justify-center gap-1.5"
+            className="flex h-10 w-10 flex-col items-center justify-center gap-[5px]"
             aria-label="Toggle menu"
           >
             <motion.span
-              animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              className="block h-0.5 w-5"
+              animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+              className="block h-[2px] w-5 rounded-full"
               style={{ background: 'var(--text-1)' }}
             />
             <motion.span
               animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="block h-0.5 w-5"
+              className="block h-[2px] w-5 rounded-full"
               style={{ background: 'var(--text-1)' }}
             />
             <motion.span
-              animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-              className="block h-0.5 w-5"
+              animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+              className="block h-[2px] w-5 rounded-full"
               style={{ background: 'var(--text-1)' }}
             />
           </button>
