@@ -34,10 +34,10 @@ function App() {
         <ErrorBoundary>
           <Suspense fallback={<SectionLoader />}>
             <About />
-            <Skills />
-            <Experience />
-            <Projects />
             <Education />
+            <Experience />
+            <Skills />
+            <Projects />
             <Contact />
           </Suspense>
         </ErrorBoundary>
