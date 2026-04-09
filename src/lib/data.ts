@@ -1,3 +1,12 @@
+import logoPremier from '../assets/logos/premier health group.jpg';
+import logoEutech from '../assets/logos/eutech_cybernetic_logo.jpg';
+import logoAblelyf from '../assets/logos/ablelyf_logo.jpg';
+import logoStraive from '../assets/logos/straive__logo.jpg';
+import logoSmith from '../assets/logos/robert_h_smith_school_of_business_logo.jpg';
+import logoMahalingam from '../assets/logos/mahalingam_college_of_engineering_and_technology_logo.jpg';
+import logoCoursera from '../assets/logos/coursera_logo.jpg';
+import logoGuvi from '../assets/logos/guviofficial_logo.jpg';
+
 export const personalInfo = {
   name: 'Hari Yadharth Ganesh Chitra',
   shortName: 'Yadharth',
@@ -54,7 +63,7 @@ export const experiences: Experience[] = [
     role: 'Software Developer',
     period: 'Sep 2025 – Present',
     location: 'Washington DC',
-    logo: '/logos/premier health group.jpg',
+    logo: logoPremier,
     highlights: [
       'Architected HIPAA-compliant healthcare web modules using Angular 17, TypeScript, Angular Material, and RxJS, serving 50+ clinical users across multiple facilities',
       'Engineered scalable Node.js + Express.js RESTful APIs with modular middleware, reducing average response times by 30% and enabling downstream integration with AI/ML data pipelines',
@@ -67,7 +76,7 @@ export const experiences: Experience[] = [
     role: 'Software Engineer',
     period: 'Mar 2024 – Jul 2024',
     location: 'Chennai',
-    logo: '/logos/eutech_cybernetic_logo.jpg',
+    logo: logoEutech,
     highlights: [
       'Developed enterprise healthcare UI features using Angular and React.js with Angular Material, delivering responsive interfaces consumed by 200+ end users',
       'Optimized PostgreSQL queries and database indexing strategies, improving data retrieval performance by 30% for patient record APIs',
@@ -80,7 +89,7 @@ export const experiences: Experience[] = [
     role: 'Software Developer',
     period: 'Jan 2024 – Feb 2024',
     location: 'Chennai',
-    logo: '/logos/ablelyf_logo.jpg',
+    logo: logoAblelyf,
     highlights: [
       'Engineered a real-time movement detection platform using the MERN stack (MongoDB, Express.js, React.js, Node.js), processing sensor data streams for healthcare accessibility use cases',
       'Integrated Redux for centralized state management and Socket.IO for bidirectional real-time communication, boosting user engagement by 30%',
@@ -92,7 +101,7 @@ export const experiences: Experience[] = [
     role: 'Software Developer',
     period: 'Jan 2022 – Dec 2023',
     location: 'Chennai',
-    logo: '/logos/straive__logo.jpg',
+    logo: logoStraive,
     highlights: [
       'Re-engineered the NODI copy-editing platform from legacy architecture to a modern MERN stack with Bootstrap and SCSS, serving 1,000+ daily active editors',
       'Automated frontend state management with Redux, improving rendering performance by 20% and reducing prop-drilling complexity across 40+ components',
@@ -179,7 +188,7 @@ export const education: Education[] = [
     school: 'University of Maryland, Smith School of Business',
     period: 'Aug 2024 – Dec 2025',
     location: 'College Park, MD, USA',
-    logo: '/logos/robert_h_smith_school_of_business_logo.jpg',
+    logo: logoSmith,
     highlight: 'Focused on data systems, AI, and enterprise architecture',
     coursework: ['Database Systems', 'Data Analytics', 'AI/ML Applications', 'Enterprise Architecture', 'Cloud Computing'],
   },
@@ -188,7 +197,7 @@ export const education: Education[] = [
     school: 'Anna University, Dr. Mahalingam College of Engineering',
     period: 'Aug 2017 – Apr 2021',
     location: 'Pollachi, Tamil Nadu, India',
-    logo: '/logos/mahalingam_college_of_engineering_and_technology_logo.jpg',
+    logo: logoMahalingam,
     highlight: 'Foundation in engineering systems, automation, and problem-solving',
     coursework: ['Control Systems', 'Embedded Systems', 'Programming & Algorithms', 'Robotics', 'Signal Processing'],
   },
@@ -210,7 +219,7 @@ export const certifications: Certification[] = [
     issuer: 'IBM',
     platform: 'Coursera',
     year: '2026',
-    logo: '/logos/coursera_logo.jpg',
+    logo: logoCoursera,
     description: 'Designed multi-step AI agents using LangChain, tool orchestration, and autonomous reasoning pipelines',
   },
   {
@@ -218,7 +227,7 @@ export const certifications: Certification[] = [
     issuer: 'AWS',
     platform: 'Coursera',
     year: '2025',
-    logo: '/logos/coursera_logo.jpg',
+    logo: logoCoursera,
     description: 'Architected scalable cloud infrastructure — VPCs, EC2, S3, IAM, Lambda, and high-availability design',
   },
   {
@@ -226,7 +235,7 @@ export const certifications: Certification[] = [
     issuer: 'GUVI (IIT-M Incubated)',
     platform: 'GUVI',
     year: '2021',
-    logo: '/logos/guviofficial_logo.jpg',
+    logo: logoGuvi,
     description: 'Built end-to-end web applications with HTML, CSS, JavaScript, React, Node.js, and MongoDB',
   },
 ];
