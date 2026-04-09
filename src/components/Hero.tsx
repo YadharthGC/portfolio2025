@@ -12,9 +12,9 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-32 pb-28 text-center"
+      className="relative flex min-h-[100svh] flex-col items-center justify-center px-4 pt-24 pb-24 text-center sm:px-6 sm:pt-32 sm:pb-28"
     >
-      {/* Animated mesh gradient orbs */}
+      {/* Animated mesh gradient orbs — hidden on small screens for perf */}
       <motion.div
         animate={{
           x: [0, 30, -20, 0],
@@ -22,7 +22,7 @@ export default function Hero() {
           scale: [1, 1.1, 0.95, 1],
         }}
         transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-1/4 -left-32 h-[500px] w-[500px] rounded-full blur-[120px]"
+        className="absolute top-1/4 -left-32 hidden h-[500px] w-[500px] rounded-full blur-[120px] sm:block"
         style={{
           background: `radial-gradient(circle, rgba(var(--particle-primary),${isDark ? 0.12 : 0.08}) 0%, transparent 70%)`,
         }}
@@ -34,7 +34,7 @@ export default function Hero() {
           scale: [1, 0.95, 1.1, 1],
         }}
         transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-1/4 -right-32 h-[500px] w-[500px] rounded-full blur-[120px]"
+        className="absolute bottom-1/4 -right-32 hidden h-[500px] w-[500px] rounded-full blur-[120px] sm:block"
         style={{
           background: `radial-gradient(circle, rgba(var(--particle-secondary),${isDark ? 0.12 : 0.08}) 0%, transparent 70%)`,
         }}
@@ -45,7 +45,7 @@ export default function Hero() {
           y: [0, -20, 25, 0],
         }}
         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full blur-[130px]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] rounded-full blur-[100px] sm:h-[400px] sm:w-[400px] sm:blur-[130px]"
         style={{
           background: `radial-gradient(circle, rgba(var(--particle-accent),${isDark ? 0.08 : 0.05}) 0%, transparent 70%)`,
         }}
@@ -55,22 +55,22 @@ export default function Hero() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10"
+        className="relative z-10 w-full max-w-4xl"
       >
         {/* Status badge */}
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-primary"
+          className="mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-primary sm:mb-8 sm:px-5 sm:py-2.5 sm:text-sm"
           style={{
             background: `rgba(var(--particle-primary), ${isDark ? 0.08 : 0.1})`,
             border: `1px solid rgba(var(--particle-primary), ${isDark ? 0.2 : 0.25})`,
           }}
         >
-          <span className="relative flex h-2.5 w-2.5">
+          <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500 sm:h-2.5 sm:w-2.5" />
           </span>
           Available for opportunities
         </motion.div>
@@ -80,7 +80,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="mb-3 text-base font-medium tracking-wide uppercase sm:text-lg"
+          className="mb-2 text-sm font-medium tracking-wide uppercase sm:mb-3 sm:text-base lg:text-lg"
           style={{ color: 'var(--text-3)' }}
         >
           {personalInfo.name}
@@ -89,7 +89,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="mb-6 text-5xl leading-[1.1] font-extrabold tracking-tight sm:text-6xl lg:text-8xl"
+          className="mb-4 text-[clamp(2.2rem,8vw,6rem)] leading-[1.1] font-extrabold tracking-tight sm:mb-6"
           style={{ color: 'var(--text-1)' }}
         >
           I build things{' '}
@@ -102,15 +102,15 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="mb-8 flex h-12 items-center justify-center gap-3 text-xl font-medium sm:text-2xl lg:text-3xl"
+          className="mb-6 flex h-10 items-center justify-center gap-2 text-base font-medium sm:mb-8 sm:h-12 sm:gap-3 sm:text-2xl lg:text-3xl"
           style={{ color: 'var(--text-2)' }}
         >
           <span className="h-px w-8 bg-primary/40 hidden sm:block" />
-          <span>{typed}</span>
+          <span className="truncate">{typed}</span>
           <motion.span
             animate={{ opacity: [1, 0] }}
             transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
-            className="inline-block h-7 w-[3px] rounded-full bg-primary align-middle sm:h-8"
+            className="inline-block h-5 w-[2px] shrink-0 rounded-full bg-primary align-middle sm:h-8 sm:w-[3px]"
           />
           <span className="h-px w-8 bg-primary/40 hidden sm:block" />
         </motion.div>
@@ -120,7 +120,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed"
+          className="mx-auto mb-8 max-w-2xl text-sm leading-relaxed sm:mb-12 sm:text-lg"
           style={{ color: 'var(--text-2)' }}
         >
           {personalInfo.summary}
@@ -131,18 +131,18 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="flex flex-wrap items-center justify-center gap-4"
+          className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
         >
           <a
             href="#contact"
-            className="group relative overflow-hidden rounded-full bg-gradient-to-r from-primary to-secondary px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:shadow-xl hover:shadow-primary/30"
+            className="group relative w-full overflow-hidden rounded-full bg-gradient-to-r from-primary to-secondary px-8 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 sm:w-auto sm:py-4 sm:text-base"
           >
             <span className="relative z-10">Get in Touch</span>
             <span className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
           </a>
           <motion.a
             href="#projects"
-            className="rounded-full px-8 py-4 text-base font-semibold transition-all duration-300 hover:shadow-lg"
+            className="w-full rounded-full px-8 py-3.5 text-sm font-semibold transition-all duration-300 hover:shadow-lg sm:w-auto sm:py-4 sm:text-base"
             style={{
               border: '1px solid var(--border)',
               color: 'var(--text-1)',
@@ -162,7 +162,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-14 flex items-center justify-center gap-5"
+          className="mt-10 flex items-center justify-center gap-4 sm:mt-14 sm:gap-5"
         >
           {[
             { icon: FiGithub, href: personalInfo.github, label: 'GitHub' },
@@ -182,7 +182,7 @@ export default function Hero() {
                 boxShadow: '0 8px 30px rgba(var(--particle-primary), 0.15)',
               }}
               whileTap={{ scale: 0.95 }}
-              className="rounded-full p-4 transition-all duration-300"
+              className="flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300"
               style={{
                 border: '1px solid var(--border)',
                 color: 'var(--text-2)',
@@ -190,13 +190,13 @@ export default function Hero() {
               }}
               aria-label={label}
             >
-              <Icon size={22} />
+              <Icon size={20} />
             </motion.a>
           ))}
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — desktop only */}
       <motion.a
         href="#about"
         initial={{ opacity: 0 }}

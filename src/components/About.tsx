@@ -115,11 +115,11 @@ const stats: StatCard[] = [
 
 export default function About() {
   return (
-    <section id="about" className="relative py-28 px-6">
+    <section id="about" className="relative py-16 px-4 sm:py-28 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <SectionHeading title="About Me" subtitle="Engineer first. Now adding intelligence." />
 
-        <div className="grid gap-12 lg:grid-cols-5">
+        <div className="grid gap-8 lg:grid-cols-5 lg:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -127,8 +127,8 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-3"
           >
-            <div className="glass rounded-2xl p-8 glow">
-              <p className="mb-5 text-lg leading-relaxed" style={{ color: 'var(--text-2)' }}>
+            <div className="glass rounded-2xl p-5 glow sm:p-8">
+              <p className="mb-4 text-sm leading-relaxed sm:mb-5 sm:text-lg" style={{ color: 'var(--text-2)' }}>
                 I'm a{' '}
                 <span className="font-medium text-primary">full-stack software engineer</span> with
                 3+ years of shipping production web apps in{' '}
@@ -136,7 +136,7 @@ export default function About() {
                 Angular, TypeScript, Node — I've built with all of them at scale, from HIPAA-compliant
                 patient platforms to real-time editing tools used daily by content teams.
               </p>
-              <p className="mb-5 text-lg leading-relaxed" style={{ color: 'var(--text-2)' }}>
+              <p className="mb-4 text-sm leading-relaxed sm:mb-5 sm:text-lg" style={{ color: 'var(--text-2)' }}>
                 I hold an{' '}
                 <span className="font-medium text-primary">MS in Information Systems</span> from the
                 University of Maryland — and I've been channeling that foundation into{' '}
@@ -145,14 +145,14 @@ export default function About() {
                 of an AWS Cloud Solutions Architect certification. Not starting from scratch —
                 expanding what I already know into smarter territory.
               </p>
-              <p className="mb-8 text-lg leading-relaxed" style={{ color: 'var(--text-2)' }}>
+              <p className="mb-6 text-sm leading-relaxed sm:mb-8 sm:text-lg" style={{ color: 'var(--text-2)' }}>
                 My goal? Build{' '}
                 <span className="font-medium text-primary">intelligent, user-facing applications</span>{' '}
                 — where solid web engineering meets the power of AI. The kind of products that feel
                 magical to use but are rock-solid under the hood.
               </p>
 
-              <div className="flex flex-wrap gap-5 text-sm" style={{ color: 'var(--text-2)' }}>
+              <div className="flex flex-wrap gap-3 text-xs sm:gap-5 sm:text-sm" style={{ color: 'var(--text-2)' }}>
                 <span className="flex items-center gap-2">
                   <FiMapPin className="text-primary" /> {personalInfo.location}
                 </span>
@@ -171,7 +171,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-2 gap-4 lg:col-span-2"
+            className="grid grid-cols-2 gap-3 sm:gap-4 lg:col-span-2"
           >
             {stats.map((s, i) => (
               <motion.div
@@ -181,39 +181,41 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 + i * 0.1 }}
                 whileHover={{ y: -6, scale: 1.03 }}
-                className="glass relative overflow-hidden rounded-2xl p-5 text-center transition-all duration-300"
+                className="glass relative overflow-hidden rounded-2xl p-4 text-center transition-all duration-300 sm:p-5"
               >
                 {/* Content */}
                 <div className="relative z-10">
-                  <s.icon className="mx-auto mb-2 text-primary" size={20} />
-                  <div className="gradient-text mb-0.5 text-3xl font-bold">
+                  <s.icon className="mx-auto mb-2 text-primary" size={18} />
+                  <div className="gradient-text mb-0.5 text-2xl font-bold sm:text-3xl">
                     <AnimatedCounter target={s.value} suffix={s.suffix} />
                   </div>
-                  <div className="text-sm font-medium" style={{ color: 'var(--text-1)' }}>
+                  <div className="text-xs font-medium sm:text-sm" style={{ color: 'var(--text-1)' }}>
                     {s.label}
                   </div>
-                  <div className="mt-1 text-xs leading-snug" style={{ color: 'var(--text-3)' }}>
+                  <div className="mt-1 hidden text-xs leading-snug sm:block" style={{ color: 'var(--text-3)' }}>
                     {s.desc}
                   </div>
                 </div>
 
-                {/* Decorative background icons */}
-                {s.bgIcons.map((bg, j) => (
-                  <bg.icon
-                    key={j}
-                    size={bg.size}
-                    className="pointer-events-none absolute text-primary"
-                    style={{
-                      left: bg.x,
-                      top: bg.y,
-                      transform: `rotate(${bg.rotate}deg)`,
-                      opacity: 0.06,
-                    }}
-                    strokeWidth={1.2}
-                  />
-                ))}
+                {/* Decorative background icons — hidden on mobile */}
+                <div className="hidden sm:block">
+                  {s.bgIcons.map((bg, j) => (
+                    <bg.icon
+                      key={j}
+                      size={bg.size}
+                      className="pointer-events-none absolute text-primary"
+                      style={{
+                        left: bg.x,
+                        top: bg.y,
+                        transform: `rotate(${bg.rotate}deg)`,
+                        opacity: 0.06,
+                      }}
+                      strokeWidth={1.2}
+                    />
+                  ))}
+                </div>
 
-                {/* Bottom fade so icons blend into card */}
+                {/* Bottom fade */}
                 <div
                   className="pointer-events-none absolute inset-x-0 bottom-0 h-10 rounded-b-2xl"
                   style={{

@@ -38,18 +38,27 @@ export default function Navbar() {
     };
   }, []);
 
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 768) setMobileOpen(false);
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
   return (
     <motion.nav
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'glass-strong shadow-lg' : 'bg-transparent'
+        scrolled || mobileOpen ? 'glass-strong shadow-lg' : 'bg-transparent'
       }`}
       style={scrolled ? { boxShadow: `0 4px 30px ${isDark ? 'rgba(0,0,0,0.3)' : 'rgba(0,0,0,0.06)'}` } : {}}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#hero" className="group flex items-center gap-1.5 text-xl font-bold tracking-tight">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
+        <a href="#hero" className="group flex items-center gap-1.5 text-lg font-bold tracking-tight sm:text-xl">
           <span className="gradient-text">Yadharth</span>
           <span style={{ color: 'var(--text-3)' }} className="text-sm font-normal hidden sm:inline">GC</span>
         </a>
@@ -88,40 +97,41 @@ export default function Navbar() {
         </div>
 
         {/* Mobile: Resume button + hamburger */}
-        <div className="flex items-center gap-3 md:hidden">
+        <div className="flex items-center gap-2 md:hidden">
           <a
             href={`${import.meta.env.BASE_URL}Hari_Yadharth_Resume.pdf`}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border border-primary/40 px-4 py-1.5 text-sm font-medium text-primary transition-all duration-300 hover:bg-primary/10"
+            className="rounded-full border border-primary/40 px-3 py-1.5 text-xs font-medium text-primary transition-all duration-300 hover:bg-primary/10"
           >
             Resume
           </a>
           <button
+            type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="flex flex-col gap-1.5"
+            className="flex h-10 w-10 flex-col items-center justify-center gap-1.5"
             aria-label="Toggle menu"
           >
             <motion.span
               animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              className="block h-0.5 w-6"
+              className="block h-0.5 w-5"
               style={{ background: 'var(--text-1)' }}
             />
             <motion.span
               animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="block h-0.5 w-6"
+              className="block h-0.5 w-5"
               style={{ background: 'var(--text-1)' }}
             />
             <motion.span
               animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-              className="block h-0.5 w-6"
+              className="block h-0.5 w-5"
               style={{ background: 'var(--text-1)' }}
             />
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — full screen overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -130,13 +140,13 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="glass-strong overflow-hidden md:hidden"
           >
-            <div className="flex flex-col gap-2 px-6 py-4">
+            <div className="flex flex-col px-4 py-3">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="py-2 transition-colors hover:text-primary"
+                  className="flex h-11 items-center rounded-lg px-3 text-sm font-medium transition-colors active:bg-primary/10 hover:text-primary"
                   style={{ color: 'var(--text-2)' }}
                 >
                   {link.label}

@@ -10,15 +10,15 @@ export default function Education() {
   const [expanded, setExpanded] = useState<string | null>(null);
 
   return (
-    <section id="education" className="relative py-28 px-6">
+    <section id="education" className="relative py-16 px-4 sm:py-28 sm:px-6">
       <div className="mx-auto max-w-5xl">
         <SectionHeading title="Education & Certifications" subtitle="Where I learned, what I earned." />
 
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
           {/* Education */}
           <div>
             <h3
-              className="mb-6 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider"
+              className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider sm:mb-6 sm:text-sm"
               style={{ color: 'var(--text-3)' }}
             >
               Education
@@ -34,18 +34,18 @@ export default function Education() {
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.15 }}
                     whileHover={{ y: -3 }}
-                    className="glass rounded-2xl p-6 transition-all duration-300"
+                    className="glass rounded-2xl p-4 transition-all duration-300 sm:p-6"
                   >
                     <div className="mb-1 text-xs font-medium text-primary">{edu.period}</div>
 
                     {/* Degree + Logo */}
-                    <div className="mb-2 flex items-center gap-3">
+                    <div className="mb-2 flex items-start gap-3">
                       <LogoWithFallback src={edu.logo} alt={edu.school} />
-                      <div>
-                        <h4 className="text-lg font-bold" style={{ color: 'var(--text-1)' }}>
+                      <div className="min-w-0">
+                        <h4 className="text-base font-bold sm:text-lg" style={{ color: 'var(--text-1)' }}>
                           {edu.degree}
                         </h4>
-                        <p className="text-sm" style={{ color: 'var(--text-2)' }}>
+                        <p className="text-xs sm:text-sm" style={{ color: 'var(--text-2)' }}>
                           {edu.school}
                         </p>
                       </div>
@@ -56,12 +56,12 @@ export default function Education() {
                       className="mb-3 flex items-center gap-1.5 text-xs"
                       style={{ color: 'var(--text-3)' }}
                     >
-                      <FiMapPin size={11} className="text-primary" />
+                      <FiMapPin size={11} className="shrink-0 text-primary" />
                       {edu.location}
                     </div>
 
                     {/* Highlight */}
-                    <p className="mb-3 text-sm leading-relaxed" style={{ color: 'var(--text-2)' }}>
+                    <p className="mb-3 text-xs leading-relaxed sm:text-sm" style={{ color: 'var(--text-2)' }}>
                       {edu.highlight}
                     </p>
 
@@ -69,7 +69,7 @@ export default function Education() {
                     <button
                       type="button"
                       onClick={() => setExpanded(isOpen ? null : edu.degree)}
-                      className="flex items-center gap-1.5 text-xs font-medium text-primary transition-colors hover:text-primary/80"
+                      className="flex items-center gap-1.5 py-1 text-xs font-medium text-primary transition-colors hover:text-primary/80"
                     >
                       Relevant Coursework
                       <motion.span
@@ -105,7 +105,7 @@ export default function Education() {
           {/* Certifications */}
           <div>
             <h3
-              className="mb-6 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider"
+              className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider sm:mb-6 sm:text-sm"
               style={{ color: 'var(--text-3)' }}
             >
               Certifications
@@ -119,7 +119,7 @@ export default function Education() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.15 }}
                   whileHover={{ y: -3 }}
-                  className="glass rounded-2xl p-6 transition-all duration-300"
+                  className="glass rounded-2xl p-4 transition-all duration-300 sm:p-6"
                 >
                   {/* Year badge */}
                   <div className="mb-3 flex items-center justify-between">
@@ -152,14 +152,14 @@ export default function Education() {
 
                   {/* Cert name */}
                   <h4
-                    className="mb-2 text-base font-bold leading-snug"
+                    className="mb-2 text-sm font-bold leading-snug sm:text-base"
                     style={{ color: 'var(--text-1)' }}
                   >
                     {cert.name}
                   </h4>
 
                   {/* Issuer + platform logo */}
-                  <div className="mb-3 flex items-center gap-2 text-sm">
+                  <div className="mb-3 flex items-center gap-2 text-xs sm:text-sm">
                     <LogoWithFallback src={cert.logo} alt={cert.platform} size="sm" />
                     <span style={{ color: 'var(--text-2)' }}>
                       {cert.issuer} <span style={{ color: 'var(--text-3)' }}>via {cert.platform}</span>
@@ -168,7 +168,7 @@ export default function Education() {
 
                   {/* Description */}
                   <p
-                    className="text-sm leading-relaxed"
+                    className="text-xs leading-relaxed sm:text-sm"
                     style={{ color: 'var(--text-2)' }}
                   >
                     {cert.description}

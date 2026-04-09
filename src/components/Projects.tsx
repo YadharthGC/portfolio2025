@@ -43,19 +43,19 @@ function ProjectCard({
         transform: `perspective(800px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
         transition: 'transform 0.15s ease-out',
       }}
-      className="glass group rounded-2xl p-6 transition-all duration-300"
+      className="glass group rounded-2xl p-4 transition-all duration-300 sm:p-6"
     >
-      <div className="mb-4 flex items-start justify-between">
+      <div className="mb-3 flex items-start justify-between gap-2 sm:mb-4">
         <h3
-          className="text-lg font-bold transition-colors group-hover:text-primary"
+          className="min-w-0 text-base font-bold transition-colors group-hover:text-primary sm:text-lg"
           style={{ color: 'var(--text-1)' }}
         >
           {title}
         </h3>
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           {badge && (
             <span
-              className="shrink-0 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider"
+              className="shrink-0 rounded-full px-2.5 py-1 text-[9px] font-semibold uppercase tracking-wider sm:px-3 sm:text-[10px]"
               style={{
                 background: 'rgba(var(--particle-secondary), 0.12)',
                 color: 'var(--color-secondary)',
@@ -92,11 +92,11 @@ function ProjectCard({
         </div>
       </div>
 
-      <p className="mb-4 text-sm leading-relaxed" style={{ color: 'var(--text-2)' }}>
+      <p className="mb-3 text-xs leading-relaxed sm:mb-4 sm:text-sm" style={{ color: 'var(--text-2)' }}>
         {description}
       </p>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-1.5 sm:gap-2">
         {tech.map((t) => (
           <Tag key={t} label={t} />
         ))}
@@ -107,19 +107,19 @@ function ProjectCard({
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-28 px-6">
+    <section id="projects" className="relative py-16 px-4 sm:py-28 sm:px-6">
       <div
-        className="absolute bottom-0 right-0 h-96 w-96 rounded-full blur-[150px]"
+        className="absolute bottom-0 right-0 h-64 w-64 rounded-full blur-[120px] sm:h-96 sm:w-96 sm:blur-[150px]"
         style={{ background: 'rgba(var(--particle-secondary), 0.06)' }}
       />
 
       <div className="relative mx-auto max-w-6xl">
         <SectionHeading title="Projects" subtitle="Things I've built and shipped" />
 
-        <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider" style={{ color: 'var(--text-3)' }}>
+        <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider sm:mb-6 sm:text-sm" style={{ color: 'var(--text-3)' }}>
           Featured
         </h3>
-        <div className="mb-12 grid gap-6 md:grid-cols-2">
+        <div className="mb-8 grid gap-4 sm:mb-12 sm:gap-6 md:grid-cols-2">
           {featuredProjects.map((p, i) => (
             <ProjectCard
               key={p.name}
@@ -133,10 +133,10 @@ export default function Projects() {
           ))}
         </div>
 
-        <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider" style={{ color: 'var(--text-3)' }}>
+        <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider sm:mb-6 sm:text-sm" style={{ color: 'var(--text-3)' }}>
           From GitHub
         </h3>
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           {showcaseProjects.map((p, i) => (
             <ProjectCard
               key={p.name}

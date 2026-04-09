@@ -12,9 +12,9 @@ const iconMap: Record<string, IconType> = {
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative py-28 px-6">
+    <section id="contact" className="relative py-16 px-4 sm:py-28 sm:px-6">
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 h-96 w-96 rounded-full blur-[150px]"
+        className="absolute top-0 left-1/2 -translate-x-1/2 h-64 w-64 rounded-full blur-[120px] sm:h-96 sm:w-96 sm:blur-[150px]"
         style={{ background: 'rgba(var(--particle-primary), 0.06)' }}
       />
 
@@ -25,15 +25,15 @@ export default function Contact() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12 text-center"
+          className="mb-8 text-center sm:mb-12"
         >
-          <p className="text-lg leading-relaxed" style={{ color: 'var(--text-2)' }}>
+          <p className="text-sm leading-relaxed sm:text-lg" style={{ color: 'var(--text-2)' }}>
             I'm currently open to new opportunities. Whether you have a question, want to
             collaborate, or just want to say hi — my inbox is always open.
           </p>
         </motion.div>
 
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-3 sm:gap-4">
           {socials.map((s, i) => {
             const Icon = iconMap[s.icon];
             return (
@@ -47,21 +47,21 @@ export default function Contact() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -6, scale: 1.02 }}
-                className="glass group relative overflow-hidden rounded-2xl p-6 text-center transition-all duration-300"
+                className="glass group relative overflow-hidden rounded-2xl p-4 text-center transition-all duration-300 sm:p-6"
               >
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl glass">
-                  {Icon && <Icon size={24} className="text-primary" />}
+                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl glass sm:mb-4 sm:h-14 sm:w-14">
+                  {Icon && <Icon size={22} className="text-primary" />}
                 </div>
-                <h3 className="mb-1 font-semibold" style={{ color: 'var(--text-1)' }}>
+                <h3 className="mb-1 text-sm font-semibold sm:text-base" style={{ color: 'var(--text-1)' }}>
                   {s.label}
                 </h3>
-                <p className="text-sm" style={{ color: 'var(--text-2)' }}>
+                <p className="truncate text-xs sm:text-sm" style={{ color: 'var(--text-2)' }}>
                   {s.value}
                 </p>
                 <FiArrowUpRight
-                  className="absolute top-4 right-4 transition-all group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  className="absolute top-3 right-3 transition-all group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:top-4 sm:right-4"
                   style={{ color: 'var(--text-3)' }}
-                  size={16}
+                  size={14}
                 />
               </motion.a>
             );
@@ -73,11 +73,11 @@ export default function Contact() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="mt-16 text-center"
+          className="mt-12 text-center sm:mt-16"
         >
           <a
             href={`mailto:${personalInfo.email}`}
-            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-primary to-secondary px-10 py-4 font-medium text-white transition-all duration-300 hover:shadow-xl hover:shadow-primary/30"
+            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-primary to-secondary px-8 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 sm:px-10 sm:py-4 sm:text-base"
           >
             <span className="relative z-10">Say Hello</span>
             <FiArrowUpRight className="relative z-10 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

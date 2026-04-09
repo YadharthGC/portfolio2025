@@ -31,6 +31,8 @@
   --particle-secondary: 139, 92, 246;
   --particle-accent: 99, 102, 241;
   --glow-alpha: 0.15;
+  --section-px: clamp(1rem, 5vw, 1.5rem);
+  --section-py: clamp(3rem, 8vw, 7rem);
 }
 
 [data-theme="light"] {
@@ -71,6 +73,8 @@
     font-family: var(--font-sans);
     overflow-x: hidden;
     transition: background-color 0.5s ease, color 0.4s ease;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   ::-webkit-scrollbar {
@@ -88,21 +92,26 @@
     background: rgba(var(--particle-primary), 0.3);
     color: #fff;
   }
+
+  /* Prevent iOS zoom on input focus */
+  input, select, textarea {
+    font-size: 16px;
+  }
 }
 
 @layer components {
   .glass {
     background: var(--surface);
-    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     border: 1px solid var(--border);
     transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.3s ease;
   }
 
   .glass-strong {
     background: var(--surface-strong);
-    backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
     border: 1px solid var(--border);
     transition: background 0.4s ease, border-color 0.4s ease;
   }
@@ -134,5 +143,22 @@
   }
   [data-theme="light"] .glass:hover {
     box-shadow: 0 4px 20px rgba(var(--particle-primary), 0.08), 0 8px 40px rgba(var(--particle-secondary), 0.06);
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Touch devices: no hover effects ── */
+@media (hover: none) {
+  .glass:hover {
+    transform: none !important;
   }
 }

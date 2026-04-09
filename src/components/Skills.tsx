@@ -148,16 +148,16 @@ export default function Skills() {
   const isDark = theme === 'dark';
 
   return (
-    <section id="skills" className="relative py-28 px-6">
+    <section id="skills" className="relative py-16 px-4 sm:py-28 sm:px-6">
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full blur-[150px] transition-colors duration-700"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full blur-[120px] transition-colors duration-700 sm:h-[600px] sm:w-[600px] sm:blur-[150px]"
         style={{ background: 'rgba(var(--particle-secondary), 0.07)' }}
       />
 
       <div className="relative mx-auto max-w-6xl">
         <SectionHeading title="Tech Stack" subtitle="Technologies I build with" />
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
           {skillCategories.map((cat, catIdx) => (
             <motion.div
               key={cat.label}
@@ -166,16 +166,16 @@ export default function Skills() {
               viewport={{ once: true }}
               transition={{ delay: catIdx * 0.07 }}
               whileHover={{ y: -6 }}
-              className="glass rounded-2xl p-6 transition-all duration-300"
+              className="glass rounded-2xl p-4 transition-all duration-300 sm:p-6"
               style={{ borderColor: 'var(--border)' }}
             >
-              <div className="mb-5 flex items-center gap-3">
-                <span className="text-xl">{cat.emoji}</span>
-                <h3 className="font-semibold" style={{ color: 'var(--text-1)' }}>
+              <div className="mb-4 flex items-center gap-3 sm:mb-5">
+                <span className="text-lg sm:text-xl">{cat.emoji}</span>
+                <h3 className="text-sm font-semibold sm:text-base" style={{ color: 'var(--text-1)' }}>
                   {cat.label}
                 </h3>
               </div>
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-2 sm:gap-2.5">
                 {cat.items.map((skill, i) => (
                   <motion.div
                     key={skill.name}
@@ -191,7 +191,7 @@ export default function Skills() {
                       color: skill.color,
                       boxShadow: `0 8px 25px ${skill.color}22`,
                     }}
-                    className="group flex cursor-default items-center gap-2.5 rounded-xl border px-3.5 py-2.5 text-sm font-medium transition-all duration-300"
+                    className="group flex cursor-default items-center gap-2 rounded-xl border px-2.5 py-2 text-xs font-medium transition-all duration-300 sm:gap-2.5 sm:px-3.5 sm:py-2.5 sm:text-sm"
                     style={{
                       background: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.03)',
                       borderColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
@@ -199,8 +199,8 @@ export default function Skills() {
                     }}
                   >
                     <skill.icon
-                      size={20}
-                      className="shrink-0 transition-colors duration-300"
+                      size={16}
+                      className="shrink-0 transition-colors duration-300 sm:h-5 sm:w-5"
                       style={{ color: skill.color }}
                     />
                     {skill.name}

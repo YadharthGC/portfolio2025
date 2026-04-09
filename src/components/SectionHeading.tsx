@@ -12,13 +12,13 @@ export default function SectionHeading({ title, subtitle }: Props) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.6 }}
-      className="mb-16 text-center"
+      className="mb-10 text-center sm:mb-16"
     >
-      <h2 className="mb-3 text-3xl font-bold tracking-tight sm:text-4xl">
+      <h2 className="mb-2 text-2xl font-bold tracking-tight sm:mb-3 sm:text-3xl lg:text-4xl">
         <span className="gradient-text">{title}</span>
       </h2>
-      <p style={{ color: 'var(--text-2)' }}>{subtitle}</p>
-      <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-primary to-secondary" />
+      <p className="text-sm sm:text-base" style={{ color: 'var(--text-2)' }}>{subtitle}</p>
+      <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-secondary sm:mt-4 sm:w-20" />
     </motion.div>
   );
 }
