@@ -37,7 +37,7 @@ export const socials: SocialLink[] = [
   {
     icon: 'linkedin',
     label: 'LinkedIn',
-    value: 'linkedin.com/in/yadharthgc',
+    value: 'linkedin.com/in/yadharth',
     href: personalInfo.linkedin,
   },
   {
