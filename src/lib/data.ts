@@ -13,7 +13,7 @@ export const personalInfo = {
   roles: ['Software Engineer', 'Full-Stack Developer', 'AI Engineer', 'Healthcare Tech Builder'],
   location: 'College Park, MD, USA',
   email: 'ganeshyadharth@gmail.com',
-  linkedin: 'https://linkedin.com/in/yadharthgc',
+  linkedin: 'https://linkedin.com/in/yadharth',
   github: 'https://github.com/YadharthGC',
   githubUsername: 'YadharthGC',
   summary:
