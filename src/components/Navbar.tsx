@@ -47,6 +47,32 @@ export default function Navbar() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.slice(1);
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const wasMobileOpen = mobileOpen;
+    setMobileOpen(false);
+
+    // Wait for the mobile menu collapse animation to finish before scrolling,
+    // otherwise the target section's position is still shifting when we measure it.
+    const doScroll = () => {
+      const navEl = document.querySelector('nav');
+      const navHeight = navEl ? navEl.getBoundingClientRect().height : 64;
+      const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 8;
+      window.scrollTo({ top, behavior: 'smooth' });
+      history.replaceState(null, '', href);
+    };
+
+    if (wasMobileOpen) {
+      window.setTimeout(doScroll, 280);
+    } else {
+      doScroll();
+    }
+  };
+
   return (
     <motion.nav
       initial={{ y: -80 }}
@@ -58,7 +84,7 @@ export default function Navbar() {
       style={scrolled ? { boxShadow: `0 4px 30px ${isDark ? 'rgba(0,0,0,0.3)' : 'rgba(0,0,0,0.06)'}` } : {}}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
-        <a href="#hero" className="group flex items-center gap-1.5 text-lg font-bold tracking-tight sm:text-xl">
+        <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')} className="group flex items-center gap-1.5 text-lg font-bold tracking-tight sm:text-xl">
           <span className="gradient-text">Yadharth</span>
           <span style={{ color: 'var(--text-3)' }} className="text-sm font-normal hidden sm:inline">GC</span>
         </a>
@@ -71,6 +97,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 ${
                   isActive ? 'text-primary' : 'text-[var(--text-2)] hover:text-[var(--text-1)]'
                 }`}
@@ -145,7 +172,7 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="flex h-11 items-center rounded-lg px-3 text-sm font-medium transition-colors active:bg-primary/10 hover:text-primary"
                   style={{ color: 'var(--text-2)' }}
                 >
